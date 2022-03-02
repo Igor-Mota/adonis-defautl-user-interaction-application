@@ -1,7 +1,10 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class Auth {
-  public async handle({ request, response, auth }: HttpContextContract, next: () => Promise<void>) {
+  public async handle(
+    { request, response, auth }: HttpContextContract,
+    next: () => Promise<void | Object>
+  ) {
     // code for middleware goes here. ABOVE THE NEXT CALL
     const { authorization } = request.headers()
 
