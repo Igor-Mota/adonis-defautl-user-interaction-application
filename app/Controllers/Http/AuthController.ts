@@ -68,9 +68,28 @@ export default class AuthController {
     })
   }
 
-  public async teste() {
-    return {
-      messae: 'teste',
+  public async session( {request, response, auth}:HttpContextContract) {
+
+    if(!request.headers().authorization){
+      response.status(404).send({
+        message:'unauthorized'
+      })
     }
+
+    if(await auth.check() === false){
+     return response.status(404).send({
+        message:'token not valid or expired'
+      })
+    }
+
+    const token = await auth.use('api').authenticate()
+
+    if(token.id){
+
+    }
+
+    response.send({
+      message:render.user(token)
+    })
   }
 }

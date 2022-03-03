@@ -19,16 +19,24 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-import AuthController from 'App/Controllers/Http/AuthController'
+
+Route.post('api/register', 'AuthController.register')
+
+Route.post('api/login', 'AuthController.login')
+
+Route.get('api/session', 'AuthController.session')
 
 Route.group(() => {
-  Route.post('/register', 'AuthController.register')
 
-  Route.post('/login', 'AuthController.login')
+  Route.put('/user/update/:id', 'AuthController.update')
 
-  Route.put('/user/update/:id', 'AuthController.update').middleware('auth')
+  Route.delete('user/delete/:id', 'AuthController.destroy')
 
-  Route.delete('user/delete/:id', 'AuthController.destroy').middleware('auth')
+  Route.get('user/teste', 'AuthController.teste')
 
-  Route.get('user/teste', 'AuthController.teste').middleware('auth')
-}).prefix('/api')
+  Route.post('contest', 'ContestsController.create')
+
+
+
+
+}).prefix('/api').middleware('auth')
