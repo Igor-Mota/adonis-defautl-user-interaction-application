@@ -83,13 +83,15 @@ export default class AuthController {
     }
 
     const token = await auth.use('api').authenticate()
+    const newToken = await auth.use('api').generate(token)
 
     if(token.id){
 
     }
 
     response.send({
-      message:render.user(token)
+      message:render.user(token),
+      token:newToken
     })
   }
 }

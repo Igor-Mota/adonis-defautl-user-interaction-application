@@ -14,6 +14,9 @@ export default class Contest extends BaseModel {
   @column()
   public image_url:string
 
+  @column()
+  public user_id: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

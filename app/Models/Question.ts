@@ -6,16 +6,25 @@ export default class Question extends BaseModel {
   public id: number
 
   @column()
-  public question:string
+  public title: string
 
   @column()
-  public response_type:string
+  public response_type: string
 
   @column()
-  public responses:string
+  public responses: string
 
   @column()
-  public contest_id:number
+  public description: string
+
+  @column()
+  response_answer: string
+
+  @column()
+  answer_type: string
+
+  @column()
+  public contest_id: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

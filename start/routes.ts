@@ -36,7 +36,11 @@ Route.group(() => {
 
   Route.post('contest', 'ContestsController.create')
 
+  Route.get('contest/:id', 'ContestsController.store')
 
+  Route.get('contest/show/:id', 'ContestsController.show' )
+  
+  Route.post('question/create', 'QuestionsController.create')
 
 
 }).prefix('/api').middleware('auth')
