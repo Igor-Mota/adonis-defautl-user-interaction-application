@@ -26,5 +26,16 @@
   ],
   "aceProviders": [
     "@adonisjs/repl"
-  ]
+  ],
+  "metaFiles": [
+    ".env",
+    ".adonisrc.json",
+    {
+      "pattern": "public/**",
+      "reloadServer": false
+    },
+    {
+      "pattern": "resources/views/**/*.edge",
+      "reloadServer": false
+    }]
 }
