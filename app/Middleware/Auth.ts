@@ -7,7 +7,7 @@ export default class Auth {
   ) {
     // code for middleware goes here. ABOVE THE NEXT CALL
     const { authorization } = request.headers()
-
+    const str = authorization?.replace(/(Bearer )/g, '$1')
     if (!authorization) {
       return response.status(404).send({
         message: 'not token',

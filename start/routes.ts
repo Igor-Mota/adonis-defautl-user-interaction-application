@@ -27,7 +27,6 @@ Route.post('api/login', 'AuthController.login')
 Route.get('api/session', 'AuthController.session')
 
 Route.group(() => {
-
   Route.put('/user/update/:id', 'AuthController.update')
 
   Route.delete('user/delete/:id', 'AuthController.destroy')
@@ -38,9 +37,11 @@ Route.group(() => {
 
   Route.get('contest/:id', 'ContestsController.store')
 
-  Route.get('contest/show/:id', 'ContestsController.show' )
-  
+  Route.get('contest/show/:id', 'ContestsController.show')
+
   Route.post('question/create', 'QuestionsController.create')
+})
+  .prefix('/api')
+  .middleware('auth')
 
-
-}).prefix('/api').middleware('auth')
+Route.post('api/teste', 'QuestionsController.teste')

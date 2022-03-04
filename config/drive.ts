@@ -93,7 +93,7 @@ const driveConfig: DriveConfig = {
     |**************************************************************************
     |
     */
-     s3:{
+    s3: {
       driver: 's3',
       visibility: 'public',
       key: Env.get('S3_KEY'),
@@ -101,8 +101,7 @@ const driveConfig: DriveConfig = {
       region: Env.get('S3_REGION'),
       bucket: Env.get('S3_BUCKET'),
       endpoint: Env.get('S3_ENDPOINT'),
-     },
-
+    },
     /*
     |--------------------------------------------------------------------------
     | GCS Driver
